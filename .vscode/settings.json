@@ -1,0 +1,6 @@
+{
+    "python.terminal.executeInFileDir": true,
+    "testing.alwaysRevealTestOnStateChange": true,
+    "code-runner.fileDirectoryAsCwd": true,
+    "pythonLiveCoding.executeNotImported": true
+}
