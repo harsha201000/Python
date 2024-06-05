@@ -1,0 +1,196 @@
+Date	Company	Person Name	Room number
+1-Jan-2022	Avamba	Anatole Ridehalgh	4008
+1-Jan-2022	Fatz	Aldrich McKevin	2002
+1-Jan-2022	Leexo	Stanley Hadrill	4012
+Hotels			
+1-Jan-2022	Rhyzio	Lyndell Tice	1006
+1-Jan-2022	Eadel	Broderic Handscombe	3015
+1-Jan-2022	Oozz	Deina Harwin	2005
+1-Jan-2022	Innotype	Benyamin Crocetti	2001
+1-Jan-2022		Thea Melan	5006
+1-Jan-2022		Alexei Kneale	3002
+1-Jan-2022	Jayo	Tate Manntschke	3014
+Booking			
+1-Jan-2022		Eudora Nettle	6003
+1-Jan-2022	Riffpedia	Elianore Vigar	3002
+1-Jan-2022	Tazz	Alonso Mundee	4006
+Cleartrip			
+1-Jan-2022	Browsezoom	Ysabel Lordon	6003
+1-Jan-2022	Skinte	Raff Verecker	3012
+1-Jan-2022		Drusi Loomis	2005
+1-Jan-2022	Twitterlist	Andrea Humpatch	4005
+Hotels			
+1-Jan-2022	Shuffletag	Cammy Curle	2016
+1-Jan-2022	Geba	Howey Oseman	6001
+1-Jan-2022		Kendall Skynner	6003
+Expedia			
+1-Jan-2022	Flipopia	Prince Coppenhall	2002
+1-Jan-2022	Topicblab	Noni Tarbett	1012
+1-Jan-2022	Feedmix	Bondon Tuny	3007
+1-Jan-2022	Skynoodle	Andros Cathcart	1008
+Booking			
+1-Jan-2022	Mita	Aubert Racher	4004
+1-Jan-2022	Skinix	Curcio Lewis	3008
+1-Jan-2022	Aimbu	Weider Brookz	1001
+1-Jan-2022	Babblestorm	Alric Reeder	7001
+1-Jan-2022	Jayo	Melany Brimblecombe	3010
+1-Jan-2022	Quinu	Art Giannotti	3013
+Travel Agent 007			
+1-Jan-2022	Dynazzy	Ericha MacBain	4002
+1-Jan-2022	Tagtune	Scarlett Berthel	2001
+1-Jan-2022		Brana Stovin	3008
+1-Jan-2022	Kimia	Lottie Barnsdall	2014
+1-Jan-2022	Centizu	Faydra Hulland	5006
+1-Jan-2022	Muxo	Felice Kramer	4002
+1-Jan-2022	Dynabox	Deane Gemson	5005
+1-Jan-2022	Skalith	Willie Norree	3002
+1-Jan-2022	Tagchat	Almira Bartolomeotti	2004
+Expedia			
+1-Jan-2022	Buzzdog	Sharona Ferreres	4012
+1-Jan-2022	Zava	Ilaire Gaynes	1013
+1-Jan-2022		Prinz Rohan	7001
+Travel Agent 007			
+1-Jan-2022	Ntags	Corny Madill	3002
+Booking			
+1-Jan-2022	Youspan	Yasmin Snelgar	3012
+1-Jan-2022	Skyvu	Sherlock Hyland	6001
+1-Jan-2022	Quinu	Kalindi Shaughnessy	6003
+1-Jan-2022	Twitterlist	Lauretta Stoke	4004
+Travel Agent 007			
+1-Jan-2022	Brightdog	Lucie Jewiss	2009
+1-Jan-2022	Shufflebeat	Dorita Boulger	6005
+1-Jan-2022	Fivechat	Orsola Cowdery	4001
+1-Jan-2022	Topiclounge	Lilah Attryde	1005
+1-Jan-2022	Youopia	Alley Pyer	2002
+Hotels			
+1-Jan-2022	Dabjam	Pearline Toolan	4010
+1-Jan-2022	Kazio	Alvan Hardwick	4005
+1-Jan-2022		Fionnula Dilks	2016
+1-Jan-2022	Mycat	Gipsy Bellison	5006
+1-Jan-2022		Olga Duerdin	3015
+1-Jan-2022	Fivechat	Kinna Linsley	2001
+1-Jan-2022	Meevee	Rodrique Brockbank	2013
+1-Jan-2022	Skibox	Jonathan Ewebank	3007
+1-Jan-2022	Topiczoom	Ladonna Castagna	3012
+Expedia			
+1-Jan-2022	Realfire	Jules Evill	4010
+1-Jan-2022	Devshare	Nehemiah Huke	2013
+1-Jan-2022	Devcast	Jacques Stiffkins	1013
+1-Jan-2022	Eare	Fields Dovinson	4010
+1-Jan-2022	Dabshots	Gertie Dominguez	1011
+Hotels			
+1-Jan-2022	BlogXS	Dal McGaughay	1004
+1-Jan-2022		Valencia Delatour	1015
+Booking			
+1-Jan-2022	Rhycero	Merill Kleinhandler	1014
+1-Jan-2022	Meembee	Fredrick Hurtic	2008
+1-Jan-2022	Ntags	Angeline Goodbairn	1008
+1-Jan-2022	Tagopia	Steven Casacchia	2001
+1-Jan-2022	Feedspan	Abel Do	3016
+1-Jan-2022	Lajo	Margareta Crathern	6001
+Booking			
+1-Jan-2022	Ainyx	Etty Boland	4007
+Hotels			
+1-Jan-2022	Riffpath	Sara Emlin	2008
+1-Jan-2022	Rhynyx	Camellia O'Rudden	1004
+1-Jan-2022	Feedfish	Margarette Blanchard	2016
+1-Jan-2022	Kwinu	Talbot Martinho	4010
+Expedia			
+1-Jan-2022	Skinder	Bobbie Derx	1012
+1-Jan-2022	Jabbersphere	Merry Lawler	1008
+1-Jan-2022	Tambee	Reggie Chaldecott	3006
+Expedia			
+1-Jan-2022	Yadel	Adda Dive	5002
+1-Jan-2022	Flashpoint	Virgina Congram	1015
+Expedia			
+1-Jan-2022	Vipe	Emmet Schmidt	4006
+Booking			
+1-Jan-2022	Edgeclub	Jeffrey Stelfax	1007
+Expedia			
+1-Jan-2022	Realfire	Oby Reddington	1011
+1-Jan-2022	Leexo	Leslie Crisp	5003
+Hotels			
+1-Jan-2022	Jatri	Harmon Hurren	4008
+Hotels			
+1-Jan-2022	Yozio	Chickie Altimas	4001
+Hotels			
+1-Jan-2022		Price Tulloch	7001
+Cleartrip			
+1-Jan-2022	Oloo	Curtis Oxley	2005
+1-Jan-2022	Eadel	Dukey Hansod	7001
+1-Jan-2022	Dazzlesphere	Dunn Davydzenko	4011
+1-Jan-2022	Yabox	Matteo Lovelady	4005
+Expedia			
+1-Jan-2022	Rhynyx	Junie Parrott	4007
+1-Jan-2022	Miboo	Pierce Meese	5007
+1-Jan-2022	Leenti	Marven Burbudge	3010
+1-Jan-2022	Quire	Leland Somers	3007
+1-Jan-2022	Meetz	Celia Concklin	1016
+1-Jan-2022	Realcube	Terrie Barme	2011
+Hotels			
+1-Jan-2022		Aharon Janikowski	5006
+1-Jan-2022		Dani Limrick	5005
+1-Jan-2022	Fiveclub	Akim Chang	4004
+1-Jan-2022	Buzzster	Harwell Vance	2011
+Cleartrip			
+1-Jan-2022	Camido	Steven Britnell	1013
+1-Jan-2022	Buzzbean	Moyra Ferrini	1008
+Cleartrip			
+1-Jan-2022	Tagtune	Pammi Powley	3001
+1-Jan-2022	Divavu	Cozmo Rosenblum	1009
+1-Jan-2022	Vinder	Lurette Vaissiere	1004
+1-Jan-2022	Quinu	Brandtr Groven	1005
+1-Jan-2022	Aimbo	Percy Robertz	2009
+1-Jan-2022	Demivee	Walsh Yarranton	1004
+1-Jan-2022		Cleo Lindeberg	5001
+1-Jan-2022	Ainyx	Georg Jelley	2011
+1-Jan-2022	Oyope	Kim Caldecourt	1012
+1-Jan-2022	Feedbug	Dari Weetch	2004
+1-Jan-2022	Divanoodle	Reta Yearn	3015
+Expedia			
+1-Jan-2022	Avamm	Kakalina Farryan	1009
+1-Jan-2022	Yodo	Nanci Slyman	2009
+1-Jan-2022	Photobean	Marty Jerome	6001
+Booking			
+1-Jan-2022	Realcube	Violetta Hannond	2015
+1-Jan-2022	Brightbean	Hagan McRobert	1008
+Hotels			
+1-Jan-2022		Jere Bengle	4010
+1-Jan-2022	Bubbletube	Annabel Tuxell	4010
+1-Jan-2022	Wordpedia	Estella Jirick	2005
+Cleartrip			
+1-Jan-2022	Leexo	Zebulen Gillfillan	5004
+1-Jan-2022		Breena Bowdidge	1010
+Expedia			
+1-Jan-2022	Devbug	Benji Quadrio	1016
+1-Jan-2022	Jabbersphere	Jarrett Salazar	3011
+1-Jan-2022	Rhynoodle	Delora Cescoti	3010
+1-Jan-2022	Zooxo	Licha Attyeo	7002
+1-Jan-2022	Zoomdog	Charlene Pickard	1009
+Hotels			
+1-Jan-2022	Skinix	Julianne Ghelardi	5004
+1-Jan-2022	Centidel	Heda Burcombe	2008
+1-Jan-2022	Thoughtbridge	Vivianna Syvret	5005
+Cleartrip			
+1-Jan-2022	Voolia	Sandor Sagg	2002
+1-Jan-2022	Youfeed	Marguerite Bodell	3014
+1-Jan-2022		Alexandr Furman	3013
+1-Jan-2022	Voomm	Rudyard Stallibrass	1014
+1-Jan-2022		Chan Hairesnape	3001
+Booking			
+1-Jan-2022	Vitz	Pepillo Arkcoll	4009
+1-Jan-2022	Aimbo	Ashil Conichie	1014
+Hotels			
+1-Jan-2022	Jaxworks	Norry Satch	3015
+1-Jan-2022	Twitterwire	Kelwin Gouldthorpe	2009
+1-Jan-2022	Skiba	George Downgate	7001
+1-Jan-2022	Brightdog	Bertrando Redman	3014
+1-Jan-2022	Tagpad	Stephani Lafee	1015
+1-Jan-2022	Meevee	Victoria Lavery	7002
+Expedia			
+1-Jan-2022		Kylie Helin	5005
+Cleartrip			
+1-Jan-2022	Fivechat	Corabella Saye	4008
+1-Jan-2022	Innojam	Leandra Potapczuk	5002
+1-Jan-2022	Twitterworks	Valentia Ledson	1010
+Hotels			

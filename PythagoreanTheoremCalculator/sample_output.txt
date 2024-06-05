@@ -1,0 +1,7 @@
+Pythagorean theorem calculator! Calculate your triangle sides.                                                
+Assume the sides are a, b, c and c is the hypotenuse (the side opposite the right angle)                       
+Which side (a, b, c) do you wish to calculate? side>a                                                         
+Input the length of side b:10                                                                                 
+Input the length of side c:15                                                                                 
+The length of side a is                                                                                       
+11.180339887498949 

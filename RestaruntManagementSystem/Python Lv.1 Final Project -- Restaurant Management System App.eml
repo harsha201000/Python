@@ -1,0 +1,1444 @@
+Received: from BY3PR18MB4610.namprd18.prod.outlook.com (2603:10b6:a03:3c1::12)
+ by IA2PR18MB6032.namprd18.prod.outlook.com with HTTPS; Sun, 17 Mar 2024
+ 17:36:24 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=pass;
+ b=g57gyiJfKtrMT5YN4rouNgfjm3XshQd3gNgY9V40vJCax56E/tJCijE4U9DqeC5KZFEBPWnTGc9LWR2TKRs+emme3p2Mzh9S2n/qF2a56jdML+xx4ZSWCyzUKoycDLRqpGhdS6bFuOxkeGpJVnpbFII1muGmRHWOPM36P1SdqP4tFuidMr36KX4KQuVaf7J9UmUH/kd7fQMxqZzNrYsfUoVyT/x0GUJvxaE2et/pOViPkDqj7cdVE+juyOdrB8gqnjyzdFUKPG2kJNZLYtDOhmWAYtn55glSCPBnNf0LhlMUL0rwQQrt49mdQwndvpMQAHjKbNzsb9pZnPh5Jqv1Rg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3xEImOrBxrHeY6aPH8r+muOjnPmDwZX0tftGbSi7Zw4=;
+ b=obe3OzHBOvlbowI0GC8zdr+Zgqo6h8RG97NQew0M9f3v2dMQ6ZrNjm771JHZ7xo9tYoYSS2PuvwRperRmbBwRCo/1dOm5JR7uyCPwn7xEbYkxLsGbTljCPJCjZNFdciun3iVofaGwcfelsGsD04jbVzK/QWWfUm0hgmSgKt4vBdYNcyJjNSe5iq6r20k4uzcwQw7Y5ePPFTRzHuYN7N1Aw+f5+JjqvQr2lrNQsRs9eXGwjrI1XmWK/R4B2FwxdImQ/EZT7U2ThgOXf3RFg1kbssOrjHD9362TsENbJIGFJzoAXsRKNkzK/0R10n511ztHHTgZ+x32bjAP18f329rtQ==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 40.92.42.45) smtp.rcpttodomain=tqtb2.onmicrosoft.com
+ smtp.mailfrom=outlook.com; dmarc=pass (p=none sp=quarantine pct=100)
+ action=none header.from=outlook.com; dkim=pass (signature was verified)
+ header.d=outlook.com; arc=pass (0 oda=0 ltdi=1)
+Received: from DM6PR21CA0015.namprd21.prod.outlook.com (2603:10b6:5:174::25)
+ by BY3PR18MB4610.namprd18.prod.outlook.com (2603:10b6:a03:3c1::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7386.25; Sun, 17 Mar
+ 2024 17:36:18 +0000
+Received: from CH1PEPF0000AD78.namprd04.prod.outlook.com
+ (2603:10b6:5:174:cafe::cd) by DM6PR21CA0015.outlook.office365.com
+ (2603:10b6:5:174::25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7409.11 via Frontend
+ Transport; Sun, 17 Mar 2024 17:36:18 +0000
+Authentication-Results: spf=pass (sender IP is 40.92.42.45)
+ smtp.mailfrom=outlook.com; dkim=pass (signature was verified)
+ header.d=outlook.com;dmarc=pass action=none
+ header.from=outlook.com;compauth=pass reason=100
+Received-SPF: Pass (protection.outlook.com: domain of outlook.com designates
+ 40.92.42.45 as permitted sender) receiver=protection.outlook.com;
+ client-ip=40.92.42.45; helo=NAM10-MW2-obe.outbound.protection.outlook.com;
+ pr=C
+Received: from NAM10-MW2-obe.outbound.protection.outlook.com (40.92.42.45) by
+ CH1PEPF0000AD78.mail.protection.outlook.com (10.167.244.56) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.7409.10 via Frontend Transport; Sun, 17 Mar 2024 17:36:17 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=mKF5eEcB0aBZian2c9sA4bN+PwTkhm+43EOc6oOT77P0M7cW7oIpsVqHXiz3/G8LdCOs3XK1d/5SE7rZbNnUCzhglq8QbJS+UeQExbxd0s2BsJ+wW8aJBOFWp7tV8wRq/VwTbxtPDrKCJhLakc00Y5RUyltmoY6cM4yRtu7MEWpDj8hLTqUaTnZJ7mgXXseVZQn3dOqz6ZgZHJyadh6ZpLtQbL3XA3/hxNeksiuCAgQEfWS598GtYEeZvdw7xCiPdrBvE84DOaxklaxRxJXGrxaZ7bOOpnZYBVrG9wAH5y+PA2xtx6crr8tOHCC3trpA8c3dq0VwH/bZ9qu1E1aTUg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3xEImOrBxrHeY6aPH8r+muOjnPmDwZX0tftGbSi7Zw4=;
+ b=ca1IIz/X6WHtyweTpmToWCzfm5JqMPYveQdaX2H49uvKQS1HUlTTPVPUgR3o7XY0fD455cyHCz/SgAgpXm1y5SArpCuZleELFgNfUpG+QZtwbRqi6nrV99HcuZpCHHZGxtkJ0m0hRvzxg5kkBZ07SsAPeS36IEoPiBZD8KwTE3/1bChbolH/xf/uoQYHSQw6zNkwe7vjODoWW/Qky/ATWnJz3aXIzqI6Scd9GWKgcoOAIU7YBKDgGveMl56d3aaRo4XXXmLY7EUdg2ZC5B4BivU9lA587L0RDqnwC5pqJ1/Memx79FmQvdADwcmQjUjdH0oEbN85FEUKaiv9Gy2kKw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3xEImOrBxrHeY6aPH8r+muOjnPmDwZX0tftGbSi7Zw4=;
+ b=rpGd3Wc0fVjpr+QA7tDkcNrkWeOZVJAm9nXbRueMazp3ZVfmo4Ylzit/p/vsLyXAbKpd8QfAtY1IJnNUqaHzSF7iBwlQvp/9fbG9wqk+kM/BKAG41jkuBLXg6mXro5oidZomXFhbGdY82D8ZUfqAZNrbRjmDNKwB7RRPqbXfDzl4ruFS0EDssns51tbf0IpGYrG7liUKmu2lSNSw5Y9fWzuJPq797hDPj/2mBh/Rfb9luQZqNh50S0m+L1lN8d3dh4/+zml3TaaZwo2gaMQrdWUhbY8wePU4yoJxv662q+4foHRu5Si8exY1RisEJM7kvqVoh8Utja/5KjXmPonN0A==
+Received: from SN7PR14MB6011.namprd14.prod.outlook.com (2603:10b6:806:2a7::16)
+ by BL0PR14MB3873.namprd14.prod.outlook.com (2603:10b6:208:1cd::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7386.25; Sun, 17 Mar
+ 2024 17:36:15 +0000
+Received: from SN7PR14MB6011.namprd14.prod.outlook.com
+ ([fe80::fb06:5bb2:427e:306d]) by SN7PR14MB6011.namprd14.prod.outlook.com
+ ([fe80::fb06:5bb2:427e:306d%7]) with mapi id 15.20.7386.023; Sun, 17 Mar 2024
+ 17:36:15 +0000
+From: Harsha Malipeddi <harshamalipeddi2010@outlook.com>
+To: "harshamalipeddi@tqtb2.onmicrosoft.com"
+	<harshamalipeddi@tqtb2.onmicrosoft.com>
+Subject: Python Lv.1 Final Project -- Restaurant Management System App
+Thread-Topic: Python Lv.1 Final Project -- Restaurant Management System App
+Thread-Index: AQHaeJGLzC47kyW6a0e8AuZYsNC7DQ==
+Date: Sun, 17 Mar 2024 17:36:15 +0000
+Message-ID:
+ <SN7PR14MB60116D40AF2DC0A5AAD3ADFFAB2E2@SN7PR14MB6011.namprd14.prod.outlook.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+msip_labels:
+x-ms-exchange-messagesentrepresentingtype: 1
+x-tmn: [qBqHHG6UeummrXnPb3s8rd11Ao0ZO6pw4AXoFXPP/NVRMgUt4Ede1aP5TFSQ4lQ8]
+x-ms-traffictypediagnostic:
+ SN7PR14MB6011:EE_|BL0PR14MB3873:EE_|CH1PEPF0000AD78:EE_|BY3PR18MB4610:EE_|IA2PR18MB6032:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0588412d-cbbf-4588-d0b4-08dc46a8c09d
+x-ms-exchange-slblob-mailprops:
+ quCBMN2EvO+elXnNvuchQIKIjH7tmE4pNJW/wVg0vwrbUoMwSsCtmusxSes9cPqJWqV3uyUhBExcivKKxOOjDm3TrY3Ymtkfas2+e39MoaSk26OZ8kt/a2pA93jSkolE7vgLFNYgC43dNnMNcvPXjKCf7YMVDg1NDl2DnEHgwJy19nTilLXceTYn23qm15kNt3kzlgb08LZ2K2DdKKdoiRpWI1nnu44UJ0g/4ZOztKkEPRG6xcFxyYlLwbKB2Fmj43yrxNOOc2r38EC5XOhKQMFAQcTBfUBIwYh6zk6VvOsKDT03x0b+ab19qGawlXSY4juL7Kw+s7RQFEYe0suML8t26AhAi2kN4PMLuC7oTqhKfwXbFwFvA9hUo2bacQb5xdfUAe9yTrE2i3fQmpGC2XllaTBIEK3l3XlU9is6iBxNzVdN35Nw6Mnds7zLDcdAaY0M1e9T5Zs0jS2RUAANtQ1Qp07zaCJb7fAMntyGwsDzSZ6rrTaJI42qOcVFsTg9GnVA3gjSR2VqGXFVq15cO+AYq024SFdG1dsgrzBMsigmTXMZvJv5z3fl1VK8nNa0r7qnIgA+pqkm1IRlqEb+fWOOux+M9BDgzBx6T8gDx3ohkYQosjW9vBk5aPoNwDuiE1ERHO+lp7gNUnRV5sAA2hEVhlDlUn+CyRreB5p61JyGDY5slGNnOuCbNYkWxJAvTbPOAlTBIecYEtaNRQHdUw==
+X-Microsoft-Antispam-Untrusted: BCL:0;
+X-Microsoft-Antispam-Message-Info-Original:
+ 95umiR6lNChOAy2N7ohc8P0tSq4JqHijFxtWLzhBWUaRrT73dlrN2hCoOkdw7UHmPpfiiQZGJCKneAzroOJKr/hyOHkCJ3mE67M0I48/hn+Q8O7H4KBY5qea5iFlfgFfiH197XdqnXiJ2rWjdIE3K5kgj2pSKTuyyefROJhAfdMU3gOMYgAsaBmTWR8lwg245mqogfoePonFzUbkskqmFyyDVNsJkbv1+I7yAsEGCnzL+rKnOVvzoY2aS5NPMJcoiga+fb+m5Jd/3Dhm2o4GXiCBPS/ZE163HetaupNs4987992pON6Uc+/9MQ6MGDAXnNTEmYAXP0lauW/wihsxTCyEKZZ1fy0eaEP0IGIKIV22mQ0SvXDBiVNwhF81xYkwIpKAql6/WD34NgpyjoE9PvQ069OevIsbzq/V5VupRLCnlQoZy/BfzO/qfT3MuHis9C6ggbAnTgfVbu0leOlCJBqXmRaifxZa9nda8rCgsDzYNEbjH6aU47u1OvNTzpHYp7NP/fSG/xd2Ah2bCyBPGGCVUpA0wL/BLk3dyyrqhUSxzvT9NRMOHMYeiWbf2iyw
+X-MS-Exchange-AntiSpam-MessageData-Original-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-Original-0:
+ =?iso-8859-1?Q?p+AwyNbPfoFuX3MshN+b6/jPbWKRGempJTY9/i4uPAkqI1uIC3VVzxv546?=
+ =?iso-8859-1?Q?ktrpRYyiVpMHi5b1kAKMLej7g8L72Z3WuFstPPI9pnZSdQAsdJr/Tln98Z?=
+ =?iso-8859-1?Q?mRZ54jzitkBI0RDgJveIFJJUP/nwomKv0NRiMmqz0B8Iuk86L/ksRVlSFW?=
+ =?iso-8859-1?Q?/o4aEW5Uno8h7VFaIGK/6jgpvkgCHL+31fcYIz7g5HyCMuygzryD7IdbAF?=
+ =?iso-8859-1?Q?8s4QEJeYpi38dVhnwMOAzWlzcBK6+3rcSe4NIOXj5HkWPiNEKOhzXo6LvU?=
+ =?iso-8859-1?Q?ikux4GY3UcORjtcFmRkLKbiop5mG+guGkm37zMnMm+jxvWD6F1gSWZW+2h?=
+ =?iso-8859-1?Q?QZ4zpFdcKYuaiFl0fgaG800nzeSNyOnSxjUiYVdi32hkgSTvRuLFtflRhA?=
+ =?iso-8859-1?Q?Njjqu8xEF+SZF9UOMfBT/M9iUb1UTm+83xojKiHG05PDfroBZMYhv9M1Ps?=
+ =?iso-8859-1?Q?hNqyE242n5vjgIbQWjjiIQPK/cESwFlPc3moc4eGtC2vYK7tAkZ1AVek20?=
+ =?iso-8859-1?Q?m8UnL8DDZ3OUPZQfoJ5Bh4rZIAOve1MZq/oso6b6PkhoOJty1iIwBh62Vj?=
+ =?iso-8859-1?Q?XEi8dM3Od5WsF/k3bWjf8CDi3ra/63GKNQZVnw9xZuwGIX1h7K3Nt2jjW/?=
+ =?iso-8859-1?Q?IOjBT2ipVJI7IVWQiS38zP8R0NwBOgNfeHezURJNGCE0pGQ/opH7BU5ljO?=
+ =?iso-8859-1?Q?h/Y5dErKfohSGemXw3PXWKRktWCC7zDBP20T4/OMbg+Au4kj+8tB3zJGa8?=
+ =?iso-8859-1?Q?O1iuc1w+uB7KlYCiskmjmKP1qCPivz07J7iVqisxoW71WlHj1tPeUluSYJ?=
+ =?iso-8859-1?Q?OU6OdImH6aIhIOg4omsX13TPlPCrrYdNXAZwVL1rM4J1v8KpneWqu/vxVb?=
+ =?iso-8859-1?Q?57qH55yEAuZq+vrErh96JvHvnaKeDO6W1+powXPXAAZJuSfkNDIXcE1DSc?=
+ =?iso-8859-1?Q?3zrdgpRZ/FWd9uEF92omVfFX1NVn9WxQQXUyPw95wAzKCKOCAn33J1WUMz?=
+ =?iso-8859-1?Q?exCrHJoM8yXIifu2sKIsiI9f7gY9FfXKCOLxPadBXdvxYaqgWedvRz3tO/?=
+ =?iso-8859-1?Q?MHNfWvRXI9oIXlmQJ7BANNoimi5WqE+a2IoibY9aPiR1f+UJAMbQV//5QG?=
+ =?iso-8859-1?Q?b10UWo1zjW9Mko8yim3y9Rod3gLi7Kaxr9l+cl1QCVR/qulGaseCGCb6xe?=
+ =?iso-8859-1?Q?NZ0JkH3gq9FpiYVLvlGQ1c25rWpKCNUngGoZ1n/ejfFyRj+gqFmSf41hgv?=
+ =?iso-8859-1?Q?0a6FLkyZO19+W7hM8Pm29lwtv80CKwD5YHRp+M4mOXZsaZnELWFRYfnAz/?=
+ =?iso-8859-1?Q?Y6fBzCB5jED2cMK2E4Y4SOVNazAT8gYa43EXsqVV3LouVy/6q6gJHAAjru?=
+ =?iso-8859-1?Q?SyoThJdqPR?=
+Content-Type: multipart/alternative;
+	boundary="_000_SN7PR14MB60116D40AF2DC0A5AAD3ADFFAB2E2SN7PR14MB6011namp_"
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL0PR14MB3873
+Return-Path: harshamalipeddi2010@outlook.com
+X-MS-Exchange-Organization-ExpirationStartTime: 17 Mar 2024 17:36:17.9785
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 0588412d-cbbf-4588-d0b4-08dc46a8c09d
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 1f212190-7e80-4405-b8a7-bde269900755:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-Exchange-Transport-CrossTenantHeadersStripped:
+ CH1PEPF0000AD78.namprd04.prod.outlook.com
+X-MS-Exchange-Transport-CrossTenantHeadersPromoted:
+ CH1PEPF0000AD78.namprd04.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Exchange-Organization-AuthSource:
+ CH1PEPF0000AD78.namprd04.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id-Prvs:
+ acf79c5c-1b58-4f45-476d-08dc46a8bef7
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;
+X-Forefront-Antispam-Report:
+ CIP:40.92.42.45;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:NAM10-MW2-obe.outbound.protection.outlook.com;PTR:mail-mw2nam10olkn2045.outbound.protection.outlook.com;CAT:NONE;SFS:(13230031);DIR:INB;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Mar 2024 17:36:17.7754
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0588412d-cbbf-4588-d0b4-08dc46a8c09d
+X-MS-Exchange-CrossTenant-Id: 1f212190-7e80-4405-b8a7-bde269900755
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-AuthSource:
+ CH1PEPF0000AD78.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY3PR18MB4610
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:06.6725281
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.7386.023
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910001)(944506478)(944626604)(920097)(930097)(140003);
+X-Microsoft-Antispam-Message-Info:
+	=?iso-8859-1?Q?EWxK5HKEyf0thZWc8FMBYtni2SuzcSnQ22CnKKzqzXXB2HhUrcyLGk7/Cq?=
+ =?iso-8859-1?Q?bm47/MyzY/VixPx3ei0nxXInPTG4N1GgOVtuhD0ZCKgfLQa4gjGYycQxla?=
+ =?iso-8859-1?Q?S9u2DDyGJxZSAg9iQSXeyLguiVZNn7+uS/KWPLP9UOd1BWepBCDPfi77sy?=
+ =?iso-8859-1?Q?roM4sEbF4otBgPNUvHUJo3ERbrlt1+vIufayjK8N/SPcyF86V4ZC9jMzsA?=
+ =?iso-8859-1?Q?rDyHEKGfldujLf2MTFMDMElwER5bKC37Igf/4VBj3DjKbjY6LY7RBlN6+W?=
+ =?iso-8859-1?Q?dIEknt4JAf5Waf9cTOl/b0+/6f2AC0rwMp5UXl2QPaEMBI31bSei07wBJC?=
+ =?iso-8859-1?Q?WnM0M1WQuTkXTzYt1C/pg90owF/WvOyW/CcZI37EeXn5wv55qTb2mVXT/u?=
+ =?iso-8859-1?Q?JpUUpb/n6e43ih7sUEpnk5St3wPgwe+G0yw1B7uQj1QuIk0KnMM7lsjPZ1?=
+ =?iso-8859-1?Q?0iTs0YDXE3V+FpjUgnhOHh+N7yJI5Xqp1dMH0igZQDHLdjRxvWvh0q2djl?=
+ =?iso-8859-1?Q?IbmNcPojZ/MY5vhP4Z0DoiAGFvTQtw9Je1lndtt/3cji+VkIVws9HX0+8j?=
+ =?iso-8859-1?Q?msfqz05ASq0p4ciOwMdUOA2HsLsxe/TjLaKTjJuJPXsAwcqfuEKa28ApcY?=
+ =?iso-8859-1?Q?0gEZHAm6Qt/wXdxpoy6NxgFkeewMjK/bdrFCCMcewqt3D2kVYOxEAy5sv2?=
+ =?iso-8859-1?Q?UPvItplM56TZ/5wYLusFKyicN7kGkPqU87HInq7oN4nNAyUxHS/WZdH5i8?=
+ =?iso-8859-1?Q?icl8dZd3UMhKJCRJVb/Q05qTAXHPMHiuGFZ8/cCim0LbOuEQGucFqi8BHg?=
+ =?iso-8859-1?Q?WU5WbUXMBnrOTPLafZbhTzGYKxUpabXHdwXriTr7jeOrb3vlPa4tBteyae?=
+ =?iso-8859-1?Q?YkyI0emcV6sOcUa8e+z3HPg9Lz7wYMi5MtRAixgKa5HGt1gm3ggOn68Kj/?=
+ =?iso-8859-1?Q?f799uUEeA9k/Cugwcd+UnrXzxz58b4Tn4aZ8IQa9xUet/ZI73EKiTkQTBv?=
+ =?iso-8859-1?Q?B75ifzIY/UQAv5rqNIz/lZS4mFG53o7ovIEQm63x38EOz3Bn/ELN3DfMt/?=
+ =?iso-8859-1?Q?KnPQ9ltt8cvPZ9kKVy9gFt/eAoN+xavgIg4OgU/QmXImD0JrBCmSy4EMjB?=
+ =?iso-8859-1?Q?AKmTp+w6LMsUHxv5PVHwLNgkaQQnOw8ehwS0DSjINx90qWnt/LowEuWTfZ?=
+ =?iso-8859-1?Q?L0Q1Ie1i2hiAvlTLlo7fvY1F7Go09ApUGSp75ruKHdn+v0nNAcOV2/Vzv6?=
+ =?iso-8859-1?Q?LnnxsyLQdsPOsIOoVa2cRpyLUBLXsrh0EC4g7FNtyuzmB8krNa3T/qRCjN?=
+ =?iso-8859-1?Q?yecTbUsiZwG6+HgxLwWANRTlrfWoXoPKREiL5v3xCrnpy/pF9/466B50Lg?=
+ =?iso-8859-1?Q?YUDqyXOxq1sc1vpVaN9nLbd34C82BLFeUPtShekILsd2+TAIma2EDxxINZ?=
+ =?iso-8859-1?Q?b/TnQBLLMhtWj169NRA0+al3php+rW8GQumINqj/oUeGDIW1MuqU9KWu8v?=
+ =?iso-8859-1?Q?uuQHInhBN2VCJo9dF9EPtmhELBCoXp4S82++2TUGX2CTCZw8ugcKftEO4U?=
+ =?iso-8859-1?Q?2CHUJHItA/sn7IEd5isMkJn7+95sf0ACjU01nf3C7nidiIcBOU73uXimcQ?=
+ =?iso-8859-1?Q?1RJK4JPAk3/GkRZU31vaiwfZVjkzVaPaUWDahDQ4W4mstJ39eizzJZtKua?=
+ =?iso-8859-1?Q?CTgqLPm0bvj0GC8OhZjY4SIqgdefd30jIN/wr1ZxcvxwUIXHWlQyT4gBPo?=
+ =?iso-8859-1?Q?uR09PXoKBuf0a4UOdScqyOdQtnJ4xaWA3/j3otcDmuZmrEdf+tYlbc5Trk?=
+ =?iso-8859-1?Q?YdiyCuyFpgzKv9POhpWQIRP4PfCzMfGxC+aTFWRMZYLbfh2MPAh06+HXRJ?=
+ =?iso-8859-1?Q?0cgXzODXcMh60jXbVLIIxWIAnLsT+KzoBARDSDEz79GEEFGbWmR7P3zfpj?=
+ =?iso-8859-1?Q?zRt1YtgPOmMIX0Lxc/AI6dxJsSzIUA3ggVV8Lu/32XMGfI5JVRdGJy2PSS?=
+ =?iso-8859-1?Q?x0YtsrNGzg3DPXPGkX5T+fzSUd7Q=3D=3D?=
+MIME-Version: 1.0
+
+--_000_SN7PR14MB60116D40AF2DC0A5AAD3ADFFAB2E2SN7PR14MB6011namp_
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+# Codeyoung Python Level 1 - Class 47 & 48 Final Project
+
+# Import modules
+from tkinter import *
+import datetime
+
+# Functions for submit and clear buttons
+def submit():
+    listbox.insert(1, order_no_entry.get())
+    listbox.insert(2, fries_meal_entry.get())
+    listbox.insert(3, lunch_meal_entry.get())
+    listbox.insert(4, burger_meal_entry.get())
+    listbox.insert(5, pizza_meal_entry.get())
+    listbox.insert(6, cheese_burger_entry.get())
+    listbox.insert(7, drinks_entry.get())
+
+def clear():
+    listbox.grid(row=3D11,column=3D1)
+    listbox.delete(0,END)
+    order_no_entry.delete(0,END)
+    fries_meal_entry.delete(0,END)
+    lunch_meal_entry.delete(0,END)
+    burger_meal_entry.delete(0,END)
+    pizza_meal_entry.delete(0,END)
+    cheese_burger_entry.delete(0,END)
+    drinks_entry.delete(0,END)
+
+# Creating the Window and adding the name and setting size
+window =3D Tk()
+window.title("Restarunt Management System")
+window.geometry("500x500")
+
+# Adding Background color to window
+window.config(bg=3D"darkgrey")
+
+# Adding an iconphoto to the window
+logo =3D PhotoImage(file=3D"appicon.png")
+window.iconphoto(True,logo)
+
+# Creating an order summary label
+ordersummarylabel =3D Label(window,text=3D"Order Summary Label: ", fg=3D"bl=
+ack", bg=3D"darkgrey")
+ordersummarylabel.grid(row=3D11,column=3D0)
+
+# Creating a listbox to to see how many meals you ordered
+listbox =3D Listbox(window, height=3D10, width=3D20, bg=3D"white")
+listbox.grid(row=3D11,column=3D1)
+
+# App Header
+header =3D Label(window, text=3D"Restarunt Management System", fg=3D"black"=
+, font=3D("Arial", 12, "bold"), bg=3D"yellow")
+header.grid(row=3D0,column=3D1)
+
+# Setting Current Datetime
+current_datetime =3D datetime.datetime.now()
+
+# Adding Datetime label to display current date and time
+datetime_label =3D Label(window, text=3Dcurrent_datetime, fg=3D"lightgreen"=
+, bg=3D"black")
+datetime_label.grid(row=3D1,column=3D1)
+
+# Create a order number label
+order_no_label =3D Label(window, text=3D"Order No.", fg=3D"black", bg=3D"li=
+ghtgreen")
+order_no_label.grid(row=3D2,column=3D0)
+
+# Create a order number entry to enter the order number
+order_no_entry =3D Entry(window, bg=3D"lightblue")
+order_no_entry.grid(row=3D2,column=3D1)
+
+# Create a fries meal label
+fries_meal_label =3D Label(window, text=3D"Fries Meal", fg=3D"black", bg=3D=
+"lightgreen")
+fries_meal_label.grid(row=3D3,column=3D0)
+
+# Create a fries meal entry to enter how many fries you want
+fries_meal_entry =3D Entry(window, bg=3D"lightblue")
+fries_meal_entry.grid(row=3D3,column=3D1)
+
+# Create a lunch meal label
+lunch_meal_label =3D Label(window, text=3D"Lunch Meal", fg=3D"black", bg=3D=
+"lightgreen")
+lunch_meal_label.grid(row=3D4,column=3D0)
+
+# Create a lunch meal entry to enter how many lunch meals you want
+lunch_meal_entry =3D Entry(window, bg=3D"lightblue")
+lunch_meal_entry.grid(row=3D4,column=3D1)
+
+# Create a burger meal label
+burger_meal_label =3D Label(window, text=3D"Burger Meal", fg=3D"black", bg=
+=3D"lightgreen")
+burger_meal_label.grid(row=3D5,column=3D0)
+
+# Create a burger meal entry to enter how many burger meals you want
+burger_meal_entry =3D Entry(window, bg=3D"lightblue")
+burger_meal_entry.grid(row=3D5,column=3D1)
+
+# Create a pizza meal label
+pizza_meal_label =3D Label(window, text=3D"Pizza Meal", fg=3D"black", bg=3D=
+"lightgreen")
+pizza_meal_label.grid(row=3D6,column=3D0)
+
+# Create a pizza meal entry to enter how many pizzas meals you want
+pizza_meal_entry =3D Entry(window, bg=3D"lightblue")
+pizza_meal_entry.grid(row=3D6,column=3D1)
+
+# Create a cheese burger label
+cheese_burger_label =3D Label(window, text=3D"Cheese burger", fg=3D"black",=
+ bg=3D"lightgreen")
+cheese_burger_label.grid(row=3D7,column=3D0)
+
+# Create a cheese burger entry to enter how many cheeseburgers meals you wa=
+nt
+cheese_burger_entry =3D Entry(window, bg=3D"lightblue")
+cheese_burger_entry.grid(row=3D7,column=3D1)
+
+# Create a drinks label
+drinks_label =3D Label(window, text=3D"Drinks", fg=3D"black", bg=3D"lightgr=
+een")
+drinks_label.grid(row=3D8,column=3D0)
+
+# Create a drinks entry to enter how many drinks you want
+drinks_entry =3D Entry(window, bg=3D"lightblue")
+drinks_entry.grid(row=3D8,column=3D1)
+
+# Add a submit button to submit the quantity of your meals
+submit_button =3D Button(window, text=3D"Submit", fg=3D"black", bg=3D"green=
+", command=3Dsubmit)
+submit_button.grid(row=3D10,column=3D1)
+
+# Add a clear button to clear everything
+clear_button =3D Button(window, text=3D"Clear", fg=3D"black", bg=3D"red", c=
+ommand=3Dclear)
+clear_button.grid(row=3D10,column=3D0)
+
+# Add a event loop for thw window
+window.mainloop()
+
+
+--_000_SN7PR14MB60116D40AF2DC0A5AAD3ADFFAB2E2SN7PR14MB6011namp_
+Content-Type: text/html; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+<html><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Diso-8859-=
+1">
+<style type=3D"text/css" style=3D"display:none;"> P {margin-top:0;margin-bo=
+ttom:0;} </style>
+</head>
+<body dir=3D"ltr">
+<div style=3D"background-color: rgb(31, 31, 31);">
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(106, 153, 85=
+);">
+# Codeyoung Python Level 1 - Class 47 &amp; 48 Final Project</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(204, 204, 20=
+4);">
+<br>
+</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(106, 153, 85=
+);">
+# Import modules</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(197, 134, 192);">from</span><span style=3D"color:=
+ rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(78, 201, 176);">tkinter</span><span style=
+=3D"color: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(197, 134, 192);">import</span><span style=
+=3D"color: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(212, 212, 212);">*</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(197, 134, 192);">import</span><span style=3D"colo=
+r: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(78, 201, 176);">datetime</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(204, 204, 20=
+4);">
+<br>
+</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(106, 153, 85=
+);">
+# Functions for submit and clear buttons</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(86, 156, 214);">def</span><span style=3D"color: r=
+gb(204, 204, 204);">
+</span><span style=3D"color: rgb(220, 220, 170);">submit</span><span style=
+=3D"color: rgb(204, 204, 204);">():</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(204, 204, 204);">&nbsp; &nbsp; </span><span style=
+=3D"color: rgb(156, 220, 254);">listbox</span><span style=3D"color: rgb(204=
+, 204, 204);">.</span><span style=3D"color: rgb(220, 220, 170);">insert</sp=
+an><span style=3D"color: rgb(204, 204, 204);">(</span><span style=3D"color:=
+ rgb(181, 206, 168);">1</span><span style=3D"color: rgb(204, 204, 204);">,
+</span><span style=3D"color: rgb(156, 220, 254);">order_no_entry</span><spa=
+n style=3D"color: rgb(204, 204, 204);">.</span><span style=3D"color: rgb(22=
+0, 220, 170);">get</span><span style=3D"color: rgb(204, 204, 204);">())</sp=
+an></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(204, 204, 204);">&nbsp; &nbsp; </span><span style=
+=3D"color: rgb(156, 220, 254);">listbox</span><span style=3D"color: rgb(204=
+, 204, 204);">.</span><span style=3D"color: rgb(220, 220, 170);">insert</sp=
+an><span style=3D"color: rgb(204, 204, 204);">(</span><span style=3D"color:=
+ rgb(181, 206, 168);">2</span><span style=3D"color: rgb(204, 204, 204);">,
+</span><span style=3D"color: rgb(156, 220, 254);">fries_meal_entry</span><s=
+pan style=3D"color: rgb(204, 204, 204);">.</span><span style=3D"color: rgb(=
+220, 220, 170);">get</span><span style=3D"color: rgb(204, 204, 204);">())</=
+span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(204, 204, 204);">&nbsp; &nbsp; </span><span style=
+=3D"color: rgb(156, 220, 254);">listbox</span><span style=3D"color: rgb(204=
+, 204, 204);">.</span><span style=3D"color: rgb(220, 220, 170);">insert</sp=
+an><span style=3D"color: rgb(204, 204, 204);">(</span><span style=3D"color:=
+ rgb(181, 206, 168);">3</span><span style=3D"color: rgb(204, 204, 204);">,
+</span><span style=3D"color: rgb(156, 220, 254);">lunch_meal_entry</span><s=
+pan style=3D"color: rgb(204, 204, 204);">.</span><span style=3D"color: rgb(=
+220, 220, 170);">get</span><span style=3D"color: rgb(204, 204, 204);">())</=
+span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(204, 204, 204);">&nbsp; &nbsp; </span><span style=
+=3D"color: rgb(156, 220, 254);">listbox</span><span style=3D"color: rgb(204=
+, 204, 204);">.</span><span style=3D"color: rgb(220, 220, 170);">insert</sp=
+an><span style=3D"color: rgb(204, 204, 204);">(</span><span style=3D"color:=
+ rgb(181, 206, 168);">4</span><span style=3D"color: rgb(204, 204, 204);">,
+</span><span style=3D"color: rgb(156, 220, 254);">burger_meal_entry</span><=
+span style=3D"color: rgb(204, 204, 204);">.</span><span style=3D"color: rgb=
+(220, 220, 170);">get</span><span style=3D"color: rgb(204, 204, 204);">())<=
+/span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(204, 204, 204);">&nbsp; &nbsp; </span><span style=
+=3D"color: rgb(156, 220, 254);">listbox</span><span style=3D"color: rgb(204=
+, 204, 204);">.</span><span style=3D"color: rgb(220, 220, 170);">insert</sp=
+an><span style=3D"color: rgb(204, 204, 204);">(</span><span style=3D"color:=
+ rgb(181, 206, 168);">5</span><span style=3D"color: rgb(204, 204, 204);">,
+</span><span style=3D"color: rgb(156, 220, 254);">pizza_meal_entry</span><s=
+pan style=3D"color: rgb(204, 204, 204);">.</span><span style=3D"color: rgb(=
+220, 220, 170);">get</span><span style=3D"color: rgb(204, 204, 204);">())</=
+span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(204, 204, 204);">&nbsp; &nbsp; </span><span style=
+=3D"color: rgb(156, 220, 254);">listbox</span><span style=3D"color: rgb(204=
+, 204, 204);">.</span><span style=3D"color: rgb(220, 220, 170);">insert</sp=
+an><span style=3D"color: rgb(204, 204, 204);">(</span><span style=3D"color:=
+ rgb(181, 206, 168);">6</span><span style=3D"color: rgb(204, 204, 204);">,
+</span><span style=3D"color: rgb(156, 220, 254);">cheese_burger_entry</span=
+><span style=3D"color: rgb(204, 204, 204);">.</span><span style=3D"color: r=
+gb(220, 220, 170);">get</span><span style=3D"color: rgb(204, 204, 204);">()=
+)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(204, 204, 204);">&nbsp; &nbsp; </span><span style=
+=3D"color: rgb(156, 220, 254);">listbox</span><span style=3D"color: rgb(204=
+, 204, 204);">.</span><span style=3D"color: rgb(220, 220, 170);">insert</sp=
+an><span style=3D"color: rgb(204, 204, 204);">(</span><span style=3D"color:=
+ rgb(181, 206, 168);">7</span><span style=3D"color: rgb(204, 204, 204);">,
+</span><span style=3D"color: rgb(156, 220, 254);">drinks_entry</span><span =
+style=3D"color: rgb(204, 204, 204);">.</span><span style=3D"color: rgb(220,=
+ 220, 170);">get</span><span style=3D"color: rgb(204, 204, 204);">()) &nbsp=
+;
+</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(204, 204, 20=
+4);">
+<br>
+</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(86, 156, 214);">def</span><span style=3D"color: r=
+gb(204, 204, 204);">
+</span><span style=3D"color: rgb(220, 220, 170);">clear</span><span style=
+=3D"color: rgb(204, 204, 204);">():</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(204, 204, 204);">&nbsp; &nbsp; </span><span style=
+=3D"color: rgb(156, 220, 254);">listbox</span><span style=3D"color: rgb(204=
+, 204, 204);">.</span><span style=3D"color: rgb(156, 220, 254);">grid</span=
+><span style=3D"color: rgb(204, 204, 204);">(</span><span style=3D"color: r=
+gb(156, 220, 254);">row</span><span style=3D"color: rgb(212, 212, 212);">=
+=3D</span><span style=3D"color: rgb(181, 206, 168);">11</span><span style=
+=3D"color: rgb(204, 204, 204);">,</span><span style=3D"color: rgb(156, 220,=
+ 254);">column</span><span style=3D"color: rgb(212, 212, 212);">=3D</span><=
+span style=3D"color: rgb(181, 206, 168);">1</span><span style=3D"color: rgb=
+(204, 204, 204);">)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(204, 204, 204);">&nbsp; &nbsp; </span><span style=
+=3D"color: rgb(156, 220, 254);">listbox</span><span style=3D"color: rgb(204=
+, 204, 204);">.</span><span style=3D"color: rgb(220, 220, 170);">delete</sp=
+an><span style=3D"color: rgb(204, 204, 204);">(</span><span style=3D"color:=
+ rgb(181, 206, 168);">0</span><span style=3D"color: rgb(204, 204, 204);">,<=
+/span><span style=3D"color: rgb(79, 193, 255);">END</span><span style=3D"co=
+lor: rgb(204, 204, 204);">)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(204, 204, 204);">&nbsp; &nbsp; </span><span style=
+=3D"color: rgb(156, 220, 254);">order_no_entry</span><span style=3D"color: =
+rgb(204, 204, 204);">.</span><span style=3D"color: rgb(220, 220, 170);">del=
+ete</span><span style=3D"color: rgb(204, 204, 204);">(</span><span style=3D=
+"color: rgb(181, 206, 168);">0</span><span style=3D"color: rgb(204, 204, 20=
+4);">,</span><span style=3D"color: rgb(79, 193, 255);">END</span><span styl=
+e=3D"color: rgb(204, 204, 204);">)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(204, 204, 204);">&nbsp; &nbsp; </span><span style=
+=3D"color: rgb(156, 220, 254);">fries_meal_entry</span><span style=3D"color=
+: rgb(204, 204, 204);">.</span><span style=3D"color: rgb(220, 220, 170);">d=
+elete</span><span style=3D"color: rgb(204, 204, 204);">(</span><span style=
+=3D"color: rgb(181, 206, 168);">0</span><span style=3D"color: rgb(204, 204,=
+ 204);">,</span><span style=3D"color: rgb(79, 193, 255);">END</span><span s=
+tyle=3D"color: rgb(204, 204, 204);">)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(204, 204, 204);">&nbsp; &nbsp; </span><span style=
+=3D"color: rgb(156, 220, 254);">lunch_meal_entry</span><span style=3D"color=
+: rgb(204, 204, 204);">.</span><span style=3D"color: rgb(220, 220, 170);">d=
+elete</span><span style=3D"color: rgb(204, 204, 204);">(</span><span style=
+=3D"color: rgb(181, 206, 168);">0</span><span style=3D"color: rgb(204, 204,=
+ 204);">,</span><span style=3D"color: rgb(79, 193, 255);">END</span><span s=
+tyle=3D"color: rgb(204, 204, 204);">)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(204, 204, 204);">&nbsp; &nbsp; </span><span style=
+=3D"color: rgb(156, 220, 254);">burger_meal_entry</span><span style=3D"colo=
+r: rgb(204, 204, 204);">.</span><span style=3D"color: rgb(220, 220, 170);">=
+delete</span><span style=3D"color: rgb(204, 204, 204);">(</span><span style=
+=3D"color: rgb(181, 206, 168);">0</span><span style=3D"color: rgb(204, 204,=
+ 204);">,</span><span style=3D"color: rgb(79, 193, 255);">END</span><span s=
+tyle=3D"color: rgb(204, 204, 204);">)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(204, 204, 204);">&nbsp; &nbsp; </span><span style=
+=3D"color: rgb(156, 220, 254);">pizza_meal_entry</span><span style=3D"color=
+: rgb(204, 204, 204);">.</span><span style=3D"color: rgb(220, 220, 170);">d=
+elete</span><span style=3D"color: rgb(204, 204, 204);">(</span><span style=
+=3D"color: rgb(181, 206, 168);">0</span><span style=3D"color: rgb(204, 204,=
+ 204);">,</span><span style=3D"color: rgb(79, 193, 255);">END</span><span s=
+tyle=3D"color: rgb(204, 204, 204);">)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(204, 204, 204);">&nbsp; &nbsp; </span><span style=
+=3D"color: rgb(156, 220, 254);">cheese_burger_entry</span><span style=3D"co=
+lor: rgb(204, 204, 204);">.</span><span style=3D"color: rgb(220, 220, 170);=
+">delete</span><span style=3D"color: rgb(204, 204, 204);">(</span><span sty=
+le=3D"color: rgb(181, 206, 168);">0</span><span style=3D"color: rgb(204, 20=
+4, 204);">,</span><span style=3D"color: rgb(79, 193, 255);">END</span><span=
+ style=3D"color: rgb(204, 204, 204);">)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(204, 204, 204);">&nbsp; &nbsp; </span><span style=
+=3D"color: rgb(156, 220, 254);">drinks_entry</span><span style=3D"color: rg=
+b(204, 204, 204);">.</span><span style=3D"color: rgb(220, 220, 170);">delet=
+e</span><span style=3D"color: rgb(204, 204, 204);">(</span><span style=3D"c=
+olor: rgb(181, 206, 168);">0</span><span style=3D"color: rgb(204, 204, 204)=
+;">,</span><span style=3D"color: rgb(79, 193, 255);">END</span><span style=
+=3D"color: rgb(204, 204, 204);">)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(204, 204, 20=
+4);">
+&nbsp; &nbsp; </div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(106, 153, 85=
+);">
+# Creating the Window and adding the name and setting size</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">window</span><span style=3D"colo=
+r: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(212, 212, 212);">=3D</span><span style=3D"=
+color: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(78, 201, 176);">Tk</span><span style=3D"co=
+lor: rgb(204, 204, 204);">()</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">window</span><span style=3D"colo=
+r: rgb(204, 204, 204);">.</span><span style=3D"color: rgb(156, 220, 254);">=
+title</span><span style=3D"color: rgb(204, 204, 204);">(</span><span style=
+=3D"color: rgb(206, 145, 120);">&quot;Restarunt
+ Management System&quot;</span><span style=3D"color: rgb(204, 204, 204);">)=
+</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">window</span><span style=3D"colo=
+r: rgb(204, 204, 204);">.</span><span style=3D"color: rgb(156, 220, 254);">=
+geometry</span><span style=3D"color: rgb(204, 204, 204);">(</span><span sty=
+le=3D"color: rgb(206, 145, 120);">&quot;500x500&quot;</span><span style=3D"=
+color: rgb(204, 204, 204);">)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(204, 204, 20=
+4);">
+<br>
+</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(106, 153, 85=
+);">
+# Adding Background color to window</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">window</span><span style=3D"colo=
+r: rgb(204, 204, 204);">.</span><span style=3D"color: rgb(156, 220, 254);">=
+config</span><span style=3D"color: rgb(204, 204, 204);">(</span><span style=
+=3D"color: rgb(156, 220, 254);">bg</span><span style=3D"color: rgb(212, 212=
+, 212);">=3D</span><span style=3D"color: rgb(206, 145, 120);">&quot;darkgre=
+y&quot;</span><span style=3D"color: rgb(204, 204, 204);">)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(204, 204, 20=
+4);">
+<br>
+</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(106, 153, 85=
+);">
+# Adding an iconphoto to the window</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">logo</span><span style=3D"color:=
+ rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(212, 212, 212);">=3D</span><span style=3D"=
+color: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(78, 201, 176);">PhotoImage</span><span sty=
+le=3D"color: rgb(204, 204, 204);">(</span><span style=3D"color: rgb(156, 22=
+0, 254);">file</span><span style=3D"color: rgb(212, 212, 212);">=3D</span><=
+span style=3D"color: rgb(206, 145, 120);">&quot;appicon.png&quot;</span><sp=
+an style=3D"color: rgb(204, 204, 204);">)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">window</span><span style=3D"colo=
+r: rgb(204, 204, 204);">.</span><span style=3D"color: rgb(156, 220, 254);">=
+iconphoto</span><span style=3D"color: rgb(204, 204, 204);">(</span><span st=
+yle=3D"color: rgb(79, 193, 255);">True</span><span style=3D"color: rgb(204,=
+ 204, 204);">,</span><span style=3D"color: rgb(156, 220, 254);">logo</span>=
+<span style=3D"color: rgb(204, 204, 204);">)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(204, 204, 20=
+4);">
+<br>
+</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(106, 153, 85=
+);">
+# Creating an order summary label </div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">ordersummarylabel</span><span st=
+yle=3D"color: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(212, 212, 212);">=3D</span><span style=3D"=
+color: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(78, 201, 176);">Label</span><span style=3D=
+"color: rgb(204, 204, 204);">(</span><span style=3D"color: rgb(156, 220, 25=
+4);">window</span><span style=3D"color: rgb(204, 204, 204);">,</span><span =
+style=3D"color: rgb(156, 220, 254);">text</span><span style=3D"color: rgb(2=
+12, 212, 212);">=3D</span><span style=3D"color: rgb(206, 145, 120);">&quot;=
+Order
+ Summary Label: &quot;</span><span style=3D"color: rgb(204, 204, 204);">, <=
+/span><span style=3D"color: rgb(156, 220, 254);">fg</span><span style=3D"co=
+lor: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(206, 145, 120=
+);">&quot;black&quot;</span><span style=3D"color: rgb(204, 204, 204);">,
+</span><span style=3D"color: rgb(156, 220, 254);">bg</span><span style=3D"c=
+olor: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(206, 145, 12=
+0);">&quot;darkgrey&quot;</span><span style=3D"color: rgb(204, 204, 204);">=
+)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">ordersummarylabel</span><span st=
+yle=3D"color: rgb(204, 204, 204);">.</span><span style=3D"color: rgb(156, 2=
+20, 254);">grid</span><span style=3D"color: rgb(204, 204, 204);">(</span><s=
+pan style=3D"color: rgb(156, 220, 254);">row</span><span style=3D"color: rg=
+b(212, 212, 212);">=3D</span><span style=3D"color: rgb(181, 206, 168);">11<=
+/span><span style=3D"color: rgb(204, 204, 204);">,</span><span style=3D"col=
+or: rgb(156, 220, 254);">column</span><span style=3D"color: rgb(212, 212, 2=
+12);">=3D</span><span style=3D"color: rgb(181, 206, 168);">0</span><span st=
+yle=3D"color: rgb(204, 204, 204);">)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(204, 204, 20=
+4);">
+<br>
+</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(106, 153, 85=
+);">
+# Creating a listbox to to see how many meals you ordered</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">listbox</span><span style=3D"col=
+or: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(212, 212, 212);">=3D</span><span style=3D"=
+color: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(78, 201, 176);">Listbox</span><span style=
+=3D"color: rgb(204, 204, 204);">(</span><span style=3D"color: rgb(156, 220,=
+ 254);">window</span><span style=3D"color: rgb(204, 204, 204);">,
+</span><span style=3D"color: rgb(156, 220, 254);">height</span><span style=
+=3D"color: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(181, 20=
+6, 168);">10</span><span style=3D"color: rgb(204, 204, 204);">,
+</span><span style=3D"color: rgb(156, 220, 254);">width</span><span style=
+=3D"color: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(181, 20=
+6, 168);">20</span><span style=3D"color: rgb(204, 204, 204);">,
+</span><span style=3D"color: rgb(156, 220, 254);">bg</span><span style=3D"c=
+olor: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(206, 145, 12=
+0);">&quot;white&quot;</span><span style=3D"color: rgb(204, 204, 204);">)</=
+span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">listbox</span><span style=3D"col=
+or: rgb(204, 204, 204);">.</span><span style=3D"color: rgb(156, 220, 254);"=
+>grid</span><span style=3D"color: rgb(204, 204, 204);">(</span><span style=
+=3D"color: rgb(156, 220, 254);">row</span><span style=3D"color: rgb(212, 21=
+2, 212);">=3D</span><span style=3D"color: rgb(181, 206, 168);">11</span><sp=
+an style=3D"color: rgb(204, 204, 204);">,</span><span style=3D"color: rgb(1=
+56, 220, 254);">column</span><span style=3D"color: rgb(212, 212, 212);">=3D=
+</span><span style=3D"color: rgb(181, 206, 168);">1</span><span style=3D"co=
+lor: rgb(204, 204, 204);">)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(204, 204, 20=
+4);">
+<br>
+</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(106, 153, 85=
+);">
+# App Header</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">header</span><span style=3D"colo=
+r: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(212, 212, 212);">=3D</span><span style=3D"=
+color: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(78, 201, 176);">Label</span><span style=3D=
+"color: rgb(204, 204, 204);">(</span><span style=3D"color: rgb(156, 220, 25=
+4);">window</span><span style=3D"color: rgb(204, 204, 204);">,
+</span><span style=3D"color: rgb(156, 220, 254);">text</span><span style=3D=
+"color: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(206, 145, =
+120);">&quot;Restarunt Management System&quot;</span><span style=3D"color: =
+rgb(204, 204, 204);">,
+</span><span style=3D"color: rgb(156, 220, 254);">fg</span><span style=3D"c=
+olor: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(206, 145, 12=
+0);">&quot;black&quot;</span><span style=3D"color: rgb(204, 204, 204);">,
+</span><span style=3D"color: rgb(156, 220, 254);">font</span><span style=3D=
+"color: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(204, 204, =
+204);">(</span><span style=3D"color: rgb(206, 145, 120);">&quot;Arial&quot;=
+</span><span style=3D"color: rgb(204, 204, 204);">,
+</span><span style=3D"color: rgb(181, 206, 168);">12</span><span style=3D"c=
+olor: rgb(204, 204, 204);">,
+</span><span style=3D"color: rgb(206, 145, 120);">&quot;bold&quot;</span><s=
+pan style=3D"color: rgb(204, 204, 204);">),
+</span><span style=3D"color: rgb(156, 220, 254);">bg</span><span style=3D"c=
+olor: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(206, 145, 12=
+0);">&quot;yellow&quot;</span><span style=3D"color: rgb(204, 204, 204);">)<=
+/span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">header</span><span style=3D"colo=
+r: rgb(204, 204, 204);">.</span><span style=3D"color: rgb(156, 220, 254);">=
+grid</span><span style=3D"color: rgb(204, 204, 204);">(</span><span style=
+=3D"color: rgb(156, 220, 254);">row</span><span style=3D"color: rgb(212, 21=
+2, 212);">=3D</span><span style=3D"color: rgb(181, 206, 168);">0</span><spa=
+n style=3D"color: rgb(204, 204, 204);">,</span><span style=3D"color: rgb(15=
+6, 220, 254);">column</span><span style=3D"color: rgb(212, 212, 212);">=3D<=
+/span><span style=3D"color: rgb(181, 206, 168);">1</span><span style=3D"col=
+or: rgb(204, 204, 204);">)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(204, 204, 20=
+4);">
+<br>
+</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(106, 153, 85=
+);">
+# Setting Current Datetime</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">current_datetime</span><span sty=
+le=3D"color: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(212, 212, 212);">=3D</span><span style=3D"=
+color: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(78, 201, 176);">datetime</span><span style=
+=3D"color: rgb(204, 204, 204);">.</span><span style=3D"color: rgb(78, 201, =
+176);">datetime</span><span style=3D"color: rgb(204, 204, 204);">.</span><s=
+pan style=3D"color: rgb(220, 220, 170);">now</span><span style=3D"color: rg=
+b(204, 204, 204);">()</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(204, 204, 20=
+4);">
+<br>
+</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(106, 153, 85=
+);">
+# Adding Datetime label to display current date and time</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">datetime_label</span><span style=
+=3D"color: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(212, 212, 212);">=3D</span><span style=3D"=
+color: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(78, 201, 176);">Label</span><span style=3D=
+"color: rgb(204, 204, 204);">(</span><span style=3D"color: rgb(156, 220, 25=
+4);">window</span><span style=3D"color: rgb(204, 204, 204);">,
+</span><span style=3D"color: rgb(156, 220, 254);">text</span><span style=3D=
+"color: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(156, 220, =
+254);">current_datetime</span><span style=3D"color: rgb(204, 204, 204);">,
+</span><span style=3D"color: rgb(156, 220, 254);">fg</span><span style=3D"c=
+olor: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(206, 145, 12=
+0);">&quot;lightgreen&quot;</span><span style=3D"color: rgb(204, 204, 204);=
+">,
+</span><span style=3D"color: rgb(156, 220, 254);">bg</span><span style=3D"c=
+olor: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(206, 145, 12=
+0);">&quot;black&quot;</span><span style=3D"color: rgb(204, 204, 204);">)</=
+span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">datetime_label</span><span style=
+=3D"color: rgb(204, 204, 204);">.</span><span style=3D"color: rgb(156, 220,=
+ 254);">grid</span><span style=3D"color: rgb(204, 204, 204);">(</span><span=
+ style=3D"color: rgb(156, 220, 254);">row</span><span style=3D"color: rgb(2=
+12, 212, 212);">=3D</span><span style=3D"color: rgb(181, 206, 168);">1</spa=
+n><span style=3D"color: rgb(204, 204, 204);">,</span><span style=3D"color: =
+rgb(156, 220, 254);">column</span><span style=3D"color: rgb(212, 212, 212);=
+">=3D</span><span style=3D"color: rgb(181, 206, 168);">1</span><span style=
+=3D"color: rgb(204, 204, 204);">)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(204, 204, 20=
+4);">
+<br>
+</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(106, 153, 85=
+);">
+# Create a order number label</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">order_no_label</span><span style=
+=3D"color: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(212, 212, 212);">=3D</span><span style=3D"=
+color: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(78, 201, 176);">Label</span><span style=3D=
+"color: rgb(204, 204, 204);">(</span><span style=3D"color: rgb(156, 220, 25=
+4);">window</span><span style=3D"color: rgb(204, 204, 204);">,
+</span><span style=3D"color: rgb(156, 220, 254);">text</span><span style=3D=
+"color: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(206, 145, =
+120);">&quot;Order No.&quot;</span><span style=3D"color: rgb(204, 204, 204)=
+;">,
+</span><span style=3D"color: rgb(156, 220, 254);">fg</span><span style=3D"c=
+olor: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(206, 145, 12=
+0);">&quot;black&quot;</span><span style=3D"color: rgb(204, 204, 204);">,
+</span><span style=3D"color: rgb(156, 220, 254);">bg</span><span style=3D"c=
+olor: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(206, 145, 12=
+0);">&quot;lightgreen&quot;</span><span style=3D"color: rgb(204, 204, 204);=
+">)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">order_no_label</span><span style=
+=3D"color: rgb(204, 204, 204);">.</span><span style=3D"color: rgb(156, 220,=
+ 254);">grid</span><span style=3D"color: rgb(204, 204, 204);">(</span><span=
+ style=3D"color: rgb(156, 220, 254);">row</span><span style=3D"color: rgb(2=
+12, 212, 212);">=3D</span><span style=3D"color: rgb(181, 206, 168);">2</spa=
+n><span style=3D"color: rgb(204, 204, 204);">,</span><span style=3D"color: =
+rgb(156, 220, 254);">column</span><span style=3D"color: rgb(212, 212, 212);=
+">=3D</span><span style=3D"color: rgb(181, 206, 168);">0</span><span style=
+=3D"color: rgb(204, 204, 204);">)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(204, 204, 20=
+4);">
+<br>
+</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(106, 153, 85=
+);">
+# Create a order number entry to enter the order number</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">order_no_entry</span><span style=
+=3D"color: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(212, 212, 212);">=3D</span><span style=3D"=
+color: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(78, 201, 176);">Entry</span><span style=3D=
+"color: rgb(204, 204, 204);">(</span><span style=3D"color: rgb(156, 220, 25=
+4);">window</span><span style=3D"color: rgb(204, 204, 204);">,
+</span><span style=3D"color: rgb(156, 220, 254);">bg</span><span style=3D"c=
+olor: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(206, 145, 12=
+0);">&quot;lightblue&quot;</span><span style=3D"color: rgb(204, 204, 204);"=
+>)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">order_no_entry</span><span style=
+=3D"color: rgb(204, 204, 204);">.</span><span style=3D"color: rgb(156, 220,=
+ 254);">grid</span><span style=3D"color: rgb(204, 204, 204);">(</span><span=
+ style=3D"color: rgb(156, 220, 254);">row</span><span style=3D"color: rgb(2=
+12, 212, 212);">=3D</span><span style=3D"color: rgb(181, 206, 168);">2</spa=
+n><span style=3D"color: rgb(204, 204, 204);">,</span><span style=3D"color: =
+rgb(156, 220, 254);">column</span><span style=3D"color: rgb(212, 212, 212);=
+">=3D</span><span style=3D"color: rgb(181, 206, 168);">1</span><span style=
+=3D"color: rgb(204, 204, 204);">)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(204, 204, 20=
+4);">
+<br>
+</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(106, 153, 85=
+);">
+# Create a fries meal label</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">fries_meal_label</span><span sty=
+le=3D"color: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(212, 212, 212);">=3D</span><span style=3D"=
+color: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(78, 201, 176);">Label</span><span style=3D=
+"color: rgb(204, 204, 204);">(</span><span style=3D"color: rgb(156, 220, 25=
+4);">window</span><span style=3D"color: rgb(204, 204, 204);">,
+</span><span style=3D"color: rgb(156, 220, 254);">text</span><span style=3D=
+"color: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(206, 145, =
+120);">&quot;Fries Meal&quot;</span><span style=3D"color: rgb(204, 204, 204=
+);">,
+</span><span style=3D"color: rgb(156, 220, 254);">fg</span><span style=3D"c=
+olor: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(206, 145, 12=
+0);">&quot;black&quot;</span><span style=3D"color: rgb(204, 204, 204);">,
+</span><span style=3D"color: rgb(156, 220, 254);">bg</span><span style=3D"c=
+olor: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(206, 145, 12=
+0);">&quot;lightgreen&quot;</span><span style=3D"color: rgb(204, 204, 204);=
+">)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">fries_meal_label</span><span sty=
+le=3D"color: rgb(204, 204, 204);">.</span><span style=3D"color: rgb(156, 22=
+0, 254);">grid</span><span style=3D"color: rgb(204, 204, 204);">(</span><sp=
+an style=3D"color: rgb(156, 220, 254);">row</span><span style=3D"color: rgb=
+(212, 212, 212);">=3D</span><span style=3D"color: rgb(181, 206, 168);">3</s=
+pan><span style=3D"color: rgb(204, 204, 204);">,</span><span style=3D"color=
+: rgb(156, 220, 254);">column</span><span style=3D"color: rgb(212, 212, 212=
+);">=3D</span><span style=3D"color: rgb(181, 206, 168);">0</span><span styl=
+e=3D"color: rgb(204, 204, 204);">)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(204, 204, 20=
+4);">
+<br>
+</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(106, 153, 85=
+);">
+# Create a fries meal entry to enter how many fries you want</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">fries_meal_entry</span><span sty=
+le=3D"color: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(212, 212, 212);">=3D</span><span style=3D"=
+color: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(78, 201, 176);">Entry</span><span style=3D=
+"color: rgb(204, 204, 204);">(</span><span style=3D"color: rgb(156, 220, 25=
+4);">window</span><span style=3D"color: rgb(204, 204, 204);">,
+</span><span style=3D"color: rgb(156, 220, 254);">bg</span><span style=3D"c=
+olor: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(206, 145, 12=
+0);">&quot;lightblue&quot;</span><span style=3D"color: rgb(204, 204, 204);"=
+>)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">fries_meal_entry</span><span sty=
+le=3D"color: rgb(204, 204, 204);">.</span><span style=3D"color: rgb(156, 22=
+0, 254);">grid</span><span style=3D"color: rgb(204, 204, 204);">(</span><sp=
+an style=3D"color: rgb(156, 220, 254);">row</span><span style=3D"color: rgb=
+(212, 212, 212);">=3D</span><span style=3D"color: rgb(181, 206, 168);">3</s=
+pan><span style=3D"color: rgb(204, 204, 204);">,</span><span style=3D"color=
+: rgb(156, 220, 254);">column</span><span style=3D"color: rgb(212, 212, 212=
+);">=3D</span><span style=3D"color: rgb(181, 206, 168);">1</span><span styl=
+e=3D"color: rgb(204, 204, 204);">)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(204, 204, 20=
+4);">
+<br>
+</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(106, 153, 85=
+);">
+# Create a lunch meal label</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">lunch_meal_label</span><span sty=
+le=3D"color: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(212, 212, 212);">=3D</span><span style=3D"=
+color: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(78, 201, 176);">Label</span><span style=3D=
+"color: rgb(204, 204, 204);">(</span><span style=3D"color: rgb(156, 220, 25=
+4);">window</span><span style=3D"color: rgb(204, 204, 204);">,
+</span><span style=3D"color: rgb(156, 220, 254);">text</span><span style=3D=
+"color: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(206, 145, =
+120);">&quot;Lunch Meal&quot;</span><span style=3D"color: rgb(204, 204, 204=
+);">,
+</span><span style=3D"color: rgb(156, 220, 254);">fg</span><span style=3D"c=
+olor: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(206, 145, 12=
+0);">&quot;black&quot;</span><span style=3D"color: rgb(204, 204, 204);">,
+</span><span style=3D"color: rgb(156, 220, 254);">bg</span><span style=3D"c=
+olor: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(206, 145, 12=
+0);">&quot;lightgreen&quot;</span><span style=3D"color: rgb(204, 204, 204);=
+">)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">lunch_meal_label</span><span sty=
+le=3D"color: rgb(204, 204, 204);">.</span><span style=3D"color: rgb(156, 22=
+0, 254);">grid</span><span style=3D"color: rgb(204, 204, 204);">(</span><sp=
+an style=3D"color: rgb(156, 220, 254);">row</span><span style=3D"color: rgb=
+(212, 212, 212);">=3D</span><span style=3D"color: rgb(181, 206, 168);">4</s=
+pan><span style=3D"color: rgb(204, 204, 204);">,</span><span style=3D"color=
+: rgb(156, 220, 254);">column</span><span style=3D"color: rgb(212, 212, 212=
+);">=3D</span><span style=3D"color: rgb(181, 206, 168);">0</span><span styl=
+e=3D"color: rgb(204, 204, 204);">)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(204, 204, 20=
+4);">
+<br>
+</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(106, 153, 85=
+);">
+# Create a lunch meal entry to enter how many lunch meals you want</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">lunch_meal_entry</span><span sty=
+le=3D"color: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(212, 212, 212);">=3D</span><span style=3D"=
+color: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(78, 201, 176);">Entry</span><span style=3D=
+"color: rgb(204, 204, 204);">(</span><span style=3D"color: rgb(156, 220, 25=
+4);">window</span><span style=3D"color: rgb(204, 204, 204);">,
+</span><span style=3D"color: rgb(156, 220, 254);">bg</span><span style=3D"c=
+olor: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(206, 145, 12=
+0);">&quot;lightblue&quot;</span><span style=3D"color: rgb(204, 204, 204);"=
+>)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">lunch_meal_entry</span><span sty=
+le=3D"color: rgb(204, 204, 204);">.</span><span style=3D"color: rgb(156, 22=
+0, 254);">grid</span><span style=3D"color: rgb(204, 204, 204);">(</span><sp=
+an style=3D"color: rgb(156, 220, 254);">row</span><span style=3D"color: rgb=
+(212, 212, 212);">=3D</span><span style=3D"color: rgb(181, 206, 168);">4</s=
+pan><span style=3D"color: rgb(204, 204, 204);">,</span><span style=3D"color=
+: rgb(156, 220, 254);">column</span><span style=3D"color: rgb(212, 212, 212=
+);">=3D</span><span style=3D"color: rgb(181, 206, 168);">1</span><span styl=
+e=3D"color: rgb(204, 204, 204);">)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(204, 204, 20=
+4);">
+<br>
+</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(106, 153, 85=
+);">
+# Create a burger meal label</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">burger_meal_label</span><span st=
+yle=3D"color: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(212, 212, 212);">=3D</span><span style=3D"=
+color: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(78, 201, 176);">Label</span><span style=3D=
+"color: rgb(204, 204, 204);">(</span><span style=3D"color: rgb(156, 220, 25=
+4);">window</span><span style=3D"color: rgb(204, 204, 204);">,
+</span><span style=3D"color: rgb(156, 220, 254);">text</span><span style=3D=
+"color: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(206, 145, =
+120);">&quot;Burger Meal&quot;</span><span style=3D"color: rgb(204, 204, 20=
+4);">,
+</span><span style=3D"color: rgb(156, 220, 254);">fg</span><span style=3D"c=
+olor: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(206, 145, 12=
+0);">&quot;black&quot;</span><span style=3D"color: rgb(204, 204, 204);">,
+</span><span style=3D"color: rgb(156, 220, 254);">bg</span><span style=3D"c=
+olor: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(206, 145, 12=
+0);">&quot;lightgreen&quot;</span><span style=3D"color: rgb(204, 204, 204);=
+">)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">burger_meal_label</span><span st=
+yle=3D"color: rgb(204, 204, 204);">.</span><span style=3D"color: rgb(156, 2=
+20, 254);">grid</span><span style=3D"color: rgb(204, 204, 204);">(</span><s=
+pan style=3D"color: rgb(156, 220, 254);">row</span><span style=3D"color: rg=
+b(212, 212, 212);">=3D</span><span style=3D"color: rgb(181, 206, 168);">5</=
+span><span style=3D"color: rgb(204, 204, 204);">,</span><span style=3D"colo=
+r: rgb(156, 220, 254);">column</span><span style=3D"color: rgb(212, 212, 21=
+2);">=3D</span><span style=3D"color: rgb(181, 206, 168);">0</span><span sty=
+le=3D"color: rgb(204, 204, 204);">)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(204, 204, 20=
+4);">
+<br>
+</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(106, 153, 85=
+);">
+# Create a burger meal entry to enter how many burger meals you want</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">burger_meal_entry</span><span st=
+yle=3D"color: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(212, 212, 212);">=3D</span><span style=3D"=
+color: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(78, 201, 176);">Entry</span><span style=3D=
+"color: rgb(204, 204, 204);">(</span><span style=3D"color: rgb(156, 220, 25=
+4);">window</span><span style=3D"color: rgb(204, 204, 204);">,
+</span><span style=3D"color: rgb(156, 220, 254);">bg</span><span style=3D"c=
+olor: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(206, 145, 12=
+0);">&quot;lightblue&quot;</span><span style=3D"color: rgb(204, 204, 204);"=
+>)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">burger_meal_entry</span><span st=
+yle=3D"color: rgb(204, 204, 204);">.</span><span style=3D"color: rgb(156, 2=
+20, 254);">grid</span><span style=3D"color: rgb(204, 204, 204);">(</span><s=
+pan style=3D"color: rgb(156, 220, 254);">row</span><span style=3D"color: rg=
+b(212, 212, 212);">=3D</span><span style=3D"color: rgb(181, 206, 168);">5</=
+span><span style=3D"color: rgb(204, 204, 204);">,</span><span style=3D"colo=
+r: rgb(156, 220, 254);">column</span><span style=3D"color: rgb(212, 212, 21=
+2);">=3D</span><span style=3D"color: rgb(181, 206, 168);">1</span><span sty=
+le=3D"color: rgb(204, 204, 204);">)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(204, 204, 20=
+4);">
+<br>
+</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(106, 153, 85=
+);">
+# Create a pizza meal label</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">pizza_meal_label</span><span sty=
+le=3D"color: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(212, 212, 212);">=3D</span><span style=3D"=
+color: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(78, 201, 176);">Label</span><span style=3D=
+"color: rgb(204, 204, 204);">(</span><span style=3D"color: rgb(156, 220, 25=
+4);">window</span><span style=3D"color: rgb(204, 204, 204);">,
+</span><span style=3D"color: rgb(156, 220, 254);">text</span><span style=3D=
+"color: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(206, 145, =
+120);">&quot;Pizza Meal&quot;</span><span style=3D"color: rgb(204, 204, 204=
+);">,
+</span><span style=3D"color: rgb(156, 220, 254);">fg</span><span style=3D"c=
+olor: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(206, 145, 12=
+0);">&quot;black&quot;</span><span style=3D"color: rgb(204, 204, 204);">,
+</span><span style=3D"color: rgb(156, 220, 254);">bg</span><span style=3D"c=
+olor: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(206, 145, 12=
+0);">&quot;lightgreen&quot;</span><span style=3D"color: rgb(204, 204, 204);=
+">)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">pizza_meal_label</span><span sty=
+le=3D"color: rgb(204, 204, 204);">.</span><span style=3D"color: rgb(156, 22=
+0, 254);">grid</span><span style=3D"color: rgb(204, 204, 204);">(</span><sp=
+an style=3D"color: rgb(156, 220, 254);">row</span><span style=3D"color: rgb=
+(212, 212, 212);">=3D</span><span style=3D"color: rgb(181, 206, 168);">6</s=
+pan><span style=3D"color: rgb(204, 204, 204);">,</span><span style=3D"color=
+: rgb(156, 220, 254);">column</span><span style=3D"color: rgb(212, 212, 212=
+);">=3D</span><span style=3D"color: rgb(181, 206, 168);">0</span><span styl=
+e=3D"color: rgb(204, 204, 204);">)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(204, 204, 20=
+4);">
+<br>
+</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(106, 153, 85=
+);">
+# Create a pizza meal entry to enter how many pizzas meals you want</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">pizza_meal_entry</span><span sty=
+le=3D"color: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(212, 212, 212);">=3D</span><span style=3D"=
+color: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(78, 201, 176);">Entry</span><span style=3D=
+"color: rgb(204, 204, 204);">(</span><span style=3D"color: rgb(156, 220, 25=
+4);">window</span><span style=3D"color: rgb(204, 204, 204);">,
+</span><span style=3D"color: rgb(156, 220, 254);">bg</span><span style=3D"c=
+olor: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(206, 145, 12=
+0);">&quot;lightblue&quot;</span><span style=3D"color: rgb(204, 204, 204);"=
+>)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">pizza_meal_entry</span><span sty=
+le=3D"color: rgb(204, 204, 204);">.</span><span style=3D"color: rgb(156, 22=
+0, 254);">grid</span><span style=3D"color: rgb(204, 204, 204);">(</span><sp=
+an style=3D"color: rgb(156, 220, 254);">row</span><span style=3D"color: rgb=
+(212, 212, 212);">=3D</span><span style=3D"color: rgb(181, 206, 168);">6</s=
+pan><span style=3D"color: rgb(204, 204, 204);">,</span><span style=3D"color=
+: rgb(156, 220, 254);">column</span><span style=3D"color: rgb(212, 212, 212=
+);">=3D</span><span style=3D"color: rgb(181, 206, 168);">1</span><span styl=
+e=3D"color: rgb(204, 204, 204);">)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(204, 204, 20=
+4);">
+<br>
+</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(106, 153, 85=
+);">
+# Create a cheese burger label</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">cheese_burger_label</span><span =
+style=3D"color: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(212, 212, 212);">=3D</span><span style=3D"=
+color: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(78, 201, 176);">Label</span><span style=3D=
+"color: rgb(204, 204, 204);">(</span><span style=3D"color: rgb(156, 220, 25=
+4);">window</span><span style=3D"color: rgb(204, 204, 204);">,
+</span><span style=3D"color: rgb(156, 220, 254);">text</span><span style=3D=
+"color: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(206, 145, =
+120);">&quot;Cheese burger&quot;</span><span style=3D"color: rgb(204, 204, =
+204);">,
+</span><span style=3D"color: rgb(156, 220, 254);">fg</span><span style=3D"c=
+olor: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(206, 145, 12=
+0);">&quot;black&quot;</span><span style=3D"color: rgb(204, 204, 204);">,
+</span><span style=3D"color: rgb(156, 220, 254);">bg</span><span style=3D"c=
+olor: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(206, 145, 12=
+0);">&quot;lightgreen&quot;</span><span style=3D"color: rgb(204, 204, 204);=
+">)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">cheese_burger_label</span><span =
+style=3D"color: rgb(204, 204, 204);">.</span><span style=3D"color: rgb(156,=
+ 220, 254);">grid</span><span style=3D"color: rgb(204, 204, 204);">(</span>=
+<span style=3D"color: rgb(156, 220, 254);">row</span><span style=3D"color: =
+rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(181, 206, 168);">7=
+</span><span style=3D"color: rgb(204, 204, 204);">,</span><span style=3D"co=
+lor: rgb(156, 220, 254);">column</span><span style=3D"color: rgb(212, 212, =
+212);">=3D</span><span style=3D"color: rgb(181, 206, 168);">0</span><span s=
+tyle=3D"color: rgb(204, 204, 204);">)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(204, 204, 20=
+4);">
+<br>
+</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(106, 153, 85=
+);">
+# Create a cheese burger entry to enter how many cheeseburgers meals you wa=
+nt</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">cheese_burger_entry</span><span =
+style=3D"color: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(212, 212, 212);">=3D</span><span style=3D"=
+color: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(78, 201, 176);">Entry</span><span style=3D=
+"color: rgb(204, 204, 204);">(</span><span style=3D"color: rgb(156, 220, 25=
+4);">window</span><span style=3D"color: rgb(204, 204, 204);">,
+</span><span style=3D"color: rgb(156, 220, 254);">bg</span><span style=3D"c=
+olor: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(206, 145, 12=
+0);">&quot;lightblue&quot;</span><span style=3D"color: rgb(204, 204, 204);"=
+>)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">cheese_burger_entry</span><span =
+style=3D"color: rgb(204, 204, 204);">.</span><span style=3D"color: rgb(156,=
+ 220, 254);">grid</span><span style=3D"color: rgb(204, 204, 204);">(</span>=
+<span style=3D"color: rgb(156, 220, 254);">row</span><span style=3D"color: =
+rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(181, 206, 168);">7=
+</span><span style=3D"color: rgb(204, 204, 204);">,</span><span style=3D"co=
+lor: rgb(156, 220, 254);">column</span><span style=3D"color: rgb(212, 212, =
+212);">=3D</span><span style=3D"color: rgb(181, 206, 168);">1</span><span s=
+tyle=3D"color: rgb(204, 204, 204);">)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(204, 204, 20=
+4);">
+<br>
+</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(106, 153, 85=
+);">
+# Create a drinks label</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">drinks_label</span><span style=
+=3D"color: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(212, 212, 212);">=3D</span><span style=3D"=
+color: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(78, 201, 176);">Label</span><span style=3D=
+"color: rgb(204, 204, 204);">(</span><span style=3D"color: rgb(156, 220, 25=
+4);">window</span><span style=3D"color: rgb(204, 204, 204);">,
+</span><span style=3D"color: rgb(156, 220, 254);">text</span><span style=3D=
+"color: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(206, 145, =
+120);">&quot;Drinks&quot;</span><span style=3D"color: rgb(204, 204, 204);">=
+,
+</span><span style=3D"color: rgb(156, 220, 254);">fg</span><span style=3D"c=
+olor: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(206, 145, 12=
+0);">&quot;black&quot;</span><span style=3D"color: rgb(204, 204, 204);">,
+</span><span style=3D"color: rgb(156, 220, 254);">bg</span><span style=3D"c=
+olor: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(206, 145, 12=
+0);">&quot;lightgreen&quot;</span><span style=3D"color: rgb(204, 204, 204);=
+">)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">drinks_label</span><span style=
+=3D"color: rgb(204, 204, 204);">.</span><span style=3D"color: rgb(156, 220,=
+ 254);">grid</span><span style=3D"color: rgb(204, 204, 204);">(</span><span=
+ style=3D"color: rgb(156, 220, 254);">row</span><span style=3D"color: rgb(2=
+12, 212, 212);">=3D</span><span style=3D"color: rgb(181, 206, 168);">8</spa=
+n><span style=3D"color: rgb(204, 204, 204);">,</span><span style=3D"color: =
+rgb(156, 220, 254);">column</span><span style=3D"color: rgb(212, 212, 212);=
+">=3D</span><span style=3D"color: rgb(181, 206, 168);">0</span><span style=
+=3D"color: rgb(204, 204, 204);">)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(204, 204, 20=
+4);">
+<br>
+</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(106, 153, 85=
+);">
+# Create a drinks entry to enter how many drinks you want</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">drinks_entry</span><span style=
+=3D"color: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(212, 212, 212);">=3D</span><span style=3D"=
+color: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(78, 201, 176);">Entry</span><span style=3D=
+"color: rgb(204, 204, 204);">(</span><span style=3D"color: rgb(156, 220, 25=
+4);">window</span><span style=3D"color: rgb(204, 204, 204);">,
+</span><span style=3D"color: rgb(156, 220, 254);">bg</span><span style=3D"c=
+olor: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(206, 145, 12=
+0);">&quot;lightblue&quot;</span><span style=3D"color: rgb(204, 204, 204);"=
+>)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">drinks_entry</span><span style=
+=3D"color: rgb(204, 204, 204);">.</span><span style=3D"color: rgb(156, 220,=
+ 254);">grid</span><span style=3D"color: rgb(204, 204, 204);">(</span><span=
+ style=3D"color: rgb(156, 220, 254);">row</span><span style=3D"color: rgb(2=
+12, 212, 212);">=3D</span><span style=3D"color: rgb(181, 206, 168);">8</spa=
+n><span style=3D"color: rgb(204, 204, 204);">,</span><span style=3D"color: =
+rgb(156, 220, 254);">column</span><span style=3D"color: rgb(212, 212, 212);=
+">=3D</span><span style=3D"color: rgb(181, 206, 168);">1</span><span style=
+=3D"color: rgb(204, 204, 204);">)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(204, 204, 20=
+4);">
+<br>
+</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(106, 153, 85=
+);">
+# Add a submit button to submit the quantity of your meals</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">submit_button</span><span style=
+=3D"color: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(212, 212, 212);">=3D</span><span style=3D"=
+color: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(78, 201, 176);">Button</span><span style=
+=3D"color: rgb(204, 204, 204);">(</span><span style=3D"color: rgb(156, 220,=
+ 254);">window</span><span style=3D"color: rgb(204, 204, 204);">,
+</span><span style=3D"color: rgb(156, 220, 254);">text</span><span style=3D=
+"color: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(206, 145, =
+120);">&quot;Submit&quot;</span><span style=3D"color: rgb(204, 204, 204);">=
+,
+</span><span style=3D"color: rgb(156, 220, 254);">fg</span><span style=3D"c=
+olor: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(206, 145, 12=
+0);">&quot;black&quot;</span><span style=3D"color: rgb(204, 204, 204);">,
+</span><span style=3D"color: rgb(156, 220, 254);">bg</span><span style=3D"c=
+olor: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(206, 145, 12=
+0);">&quot;green&quot;</span><span style=3D"color: rgb(204, 204, 204);">,
+</span><span style=3D"color: rgb(156, 220, 254);">command</span><span style=
+=3D"color: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(220, 22=
+0, 170);">submit</span><span style=3D"color: rgb(204, 204, 204);">)</span><=
+/div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">submit_button</span><span style=
+=3D"color: rgb(204, 204, 204);">.</span><span style=3D"color: rgb(156, 220,=
+ 254);">grid</span><span style=3D"color: rgb(204, 204, 204);">(</span><span=
+ style=3D"color: rgb(156, 220, 254);">row</span><span style=3D"color: rgb(2=
+12, 212, 212);">=3D</span><span style=3D"color: rgb(181, 206, 168);">10</sp=
+an><span style=3D"color: rgb(204, 204, 204);">,</span><span style=3D"color:=
+ rgb(156, 220, 254);">column</span><span style=3D"color: rgb(212, 212, 212)=
+;">=3D</span><span style=3D"color: rgb(181, 206, 168);">1</span><span style=
+=3D"color: rgb(204, 204, 204);">)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(204, 204, 20=
+4);">
+<br>
+</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(106, 153, 85=
+);">
+# Add a clear button to clear everything</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">clear_button</span><span style=
+=3D"color: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(212, 212, 212);">=3D</span><span style=3D"=
+color: rgb(204, 204, 204);">
+</span><span style=3D"color: rgb(78, 201, 176);">Button</span><span style=
+=3D"color: rgb(204, 204, 204);">(</span><span style=3D"color: rgb(156, 220,=
+ 254);">window</span><span style=3D"color: rgb(204, 204, 204);">,
+</span><span style=3D"color: rgb(156, 220, 254);">text</span><span style=3D=
+"color: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(206, 145, =
+120);">&quot;Clear&quot;</span><span style=3D"color: rgb(204, 204, 204);">,
+</span><span style=3D"color: rgb(156, 220, 254);">fg</span><span style=3D"c=
+olor: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(206, 145, 12=
+0);">&quot;black&quot;</span><span style=3D"color: rgb(204, 204, 204);">,
+</span><span style=3D"color: rgb(156, 220, 254);">bg</span><span style=3D"c=
+olor: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(206, 145, 12=
+0);">&quot;red&quot;</span><span style=3D"color: rgb(204, 204, 204);">,
+</span><span style=3D"color: rgb(156, 220, 254);">command</span><span style=
+=3D"color: rgb(212, 212, 212);">=3D</span><span style=3D"color: rgb(220, 22=
+0, 170);">clear</span><span style=3D"color: rgb(204, 204, 204);">)</span></=
+div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">clear_button</span><span style=
+=3D"color: rgb(204, 204, 204);">.</span><span style=3D"color: rgb(156, 220,=
+ 254);">grid</span><span style=3D"color: rgb(204, 204, 204);">(</span><span=
+ style=3D"color: rgb(156, 220, 254);">row</span><span style=3D"color: rgb(2=
+12, 212, 212);">=3D</span><span style=3D"color: rgb(181, 206, 168);">10</sp=
+an><span style=3D"color: rgb(204, 204, 204);">,</span><span style=3D"color:=
+ rgb(156, 220, 254);">column</span><span style=3D"color: rgb(212, 212, 212)=
+;">=3D</span><span style=3D"color: rgb(181, 206, 168);">0</span><span style=
+=3D"color: rgb(204, 204, 204);">)</span></div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(204, 204, 20=
+4);">
+<br>
+</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(106, 153, 85=
+);">
+# Add a event loop for thw window</div>
+<div style=3D"line-height: 19px; white-space: pre; font-family: Consolas, &=
+quot;Courier New&quot;, monospace; font-size: 14px;">
+<span style=3D"color: rgb(156, 220, 254);">window</span><span style=3D"colo=
+r: rgb(204, 204, 204);">.</span><span style=3D"color: rgb(220, 220, 170);">=
+mainloop</span><span style=3D"color: rgb(204, 204, 204);">()</span></div>
+</div>
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFo=
+nt, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; c=
+olor: rgb(0, 0, 0);">
+<br>
+</div>
+</body>
+</html>
+
+--_000_SN7PR14MB60116D40AF2DC0A5AAD3ADFFAB2E2SN7PR14MB6011namp_--

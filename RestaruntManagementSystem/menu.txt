@@ -1,0 +1,3 @@
+Plate,0.5
+Cup,0.25
+Utensils,1.0
